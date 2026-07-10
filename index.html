@@ -1,205 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Our Date Invitation 💗</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Poppins, Arial, sans-serif
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Our Date Invitation 💗</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Poppins, Arial, sans-serif
+        }
 
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffd6e8, #fff5f8);
-      overflow: hidden
-    }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd6e8, #fff5f8);
+            overflow: hidden
+        }
 
-    .container {
-      width: 420px;
-      max-width: 95%;
-      background: #fff;
-      padding: 30px;
-      border-radius: 30px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(255, 80, 130, .3);
-      position: relative;
-      z-index: 2
-    }
+        .container {
+            width: 430px;
+            max-width: 95%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(255, 80, 130, .3);
+            position: relative;
+            z-index: 2
+        }
 
-    h1 {
-      color: #ff4f87
-    }
+        h1 {
+            color: #ff4f87
+        }
 
-    h2 {
-      color: #ff6b9a
-    }
+        h2 {
+            color: #ff6b9a
+        }
 
-    select,
-    button {
-      width: 90%;
-      padding: 13px;
-      margin: 15px;
-      border-radius: 25px;
-      font-size: 16px
-    }
+        select,
+        button {
+            width: 90%;
+            padding: 13px;
+            margin: 15px;
+            border-radius: 25px;
+            font-size: 16px
+        }
 
-    select {
-      border: 2px solid #ffc1d6
-    }
+        select {
+            border: 2px solid #ffc1d6
+        }
 
-    button {
-      background: #ff4f87;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: .3s
-    }
+        button {
+            background: #ff4f87;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: .3s
+        }
 
-    button:hover {
-      transform: scale(1.05)
-    }
+        button:hover {
+            transform: scale(1.05)
+        }
 
-    .hidden {
-      display: none
-    }
+        .hidden {
+            display: none
+        }
 
-    .animate {
-      animation: slide .5s
-    }
+        .fadeIn {
+            animation: fadeIn .6s
+        }
 
-    @keyframes slide {
-      from {
-        opacity: 0;
-        transform: translateX(60px)
-      }
+        .fadeOut {
+            animation: fadeOut .5s forwards
+        }
 
-      to {
-        opacity: 1;
-        transform: none
-      }
-    }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.95)
+            }
 
-    .result {
-      background: #fff0f5;
-      padding: 20px;
-      border-radius: 25px
-    }
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
 
-    .choice {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      position: relative;
-      margin-top: 15px
-    }
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(.9)
+            }
+        }
 
-    .choice button {
-      width: 120px
-    }
+        .pop {
+            animation: pop .4s
+        }
 
-    #noBtn {
-      background: #999;
-      position: relative
-    }
+        @keyframes pop {
+            0% {
+                transform: scale(.7)
+            }
 
-    #yesMsg {
-      color: #ff4f87;
-      font-weight: bold;
-      margin-top: 15px
-    }
+            70% {
+                transform: scale(1.15)
+            }
 
-    .heart {
-      position: absolute;
-      color: #ff7aa8;
-      animation: float 8s linear infinite;
-      opacity: .5
-    }
+            100% {
+                transform: scale(1)
+            }
+        }
 
-    @keyframes float {
-      from {
-        transform: translateY(100vh)
-      }
+        .result {
+            background: #fff0f5;
+            padding: 20px;
+            border-radius: 25px
+        }
 
-      to {
-        transform: translateY(-120vh)
-      }
-    }
-  </style>
+        .choice {
+            display: flex;
+            justify-content: center;
+            gap: 20px
+        }
+
+        .choice button {
+            width: 120px
+        }
+
+        #noBtn {
+            background: #999;
+            position: relative
+        }
+
+        #thankYou {
+            display: none
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff7aa8;
+            animation: float 8s linear infinite;
+            opacity: .5
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh)
+            }
+
+            to {
+                transform: translateY(-120vh)
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="container">
-    <div style="font-size:55px">💗</div>
-    <h1>Date Invitation</h1>
-    <div id=q1>
-      <h2>📍 Where should we go?</h2><select id=place>
-        <option>Lakeshore</option>
-        <option>SM Bicutan</option>
-        <option>SM Aura</option>
-        <option>Market Market</option>
-        <option>Optional</option>
-      </select><button onclick="nextQ(2)">Next 💕</button>
+    <div class="container" id="card">
+        <div style="font-size:55px">💗</div>
+        <h1>Date Invitation</h1>
+        <div id=q1>
+            <h2>📍 Where should we go?</h2><select id=place>
+                <option>Lakeshore</option>
+                <option>SM Bicutan</option>
+                <option>SM Aura</option>
+                <option>Market Market</option>
+                <option>Optional</option>
+            </select><button onclick="nextQ(2)">Next 💕</button>
+        </div>
+        <div id=q2 class=hidden>
+            <h2>🎮 What fun place?</h2><select id=fun>
+                <option>Arcade 🎮</option>
+                <option>Park 🌳</option>
+                <option>Amusement Park 🎡</option>
+                <option>Cinema 🎬</option>
+                <option>Mall Adventure 🛍️</option>
+                <option>Others ✨</option>
+            </select><button onclick="nextQ(3)">Next 💕</button>
+        </div>
+        <div id=q3 class=hidden>
+            <h2>🍴 What food?</h2><select id=food>
+                <option>McDo 🍔</option>
+                <option>Jollibee 🍗</option>
+                <option>Burger King 🍔</option>
+                <option>Inasal 🍗</option>
+                <option>KKB 🍽️</option>
+                <option>Shabu Shabu 🍲</option>
+                <option>Street Food 🌭</option>
+            </select><button onclick="nextQ(4)">Next 💕</button>
+        </div>
+        <div id=q4 class=hidden>
+            <h2>🕒 What time?</h2><select id=time>
+                <option>12:00 NN - 3:00 PM</option>
+                <option>3:00 PM - 5:00 PM</option>
+                <option>5:00 PM - 7:00 PM</option>
+            </select><button onclick="showResult()">Create Invitation 💌</button>
+        </div>
+        <div id=result class="hidden result">
+            <h2>💗 You're Invited 💗</h2>
+            <p id=message></p>
+            <div class=choice><button id=yesBtn onclick="yesAnswer()">Yes 💗</button><button id=noBtn>No 😭</button>
+            </div>
+            <p id=yesMsg></p>
+        </div>
+        <div id=thankYou>
+            <div style="font-size:75px">🥹💖</div>
+            <h1>Thank You!</h1>
+            <p>Thank you for saying <b>YES</b>. 💕<br><br>I really appreciate you giving me your time. This simple
+                invitation means so much to me, and I'm excited to spend the day with you. I hope we create beautiful
+                memories, laugh a lot, and enjoy every moment together.<br><br>See you soon! 🌸✨</p><button
+                onclick="location.reload()">Start Again 💗</button>
+        </div>
     </div>
-    <div id=q2 class=hidden>
-      <h2>🎮 What fun place?</h2><select id=fun>
-        <option>Arcade 🎮</option>
-        <option>Park 🌳</option>
-        <option>Amusement Park 🎡</option>
-        <option>Cinema 🎬</option>
-        <option>Mall Adventure 🛍️</option>
-        <option>Others ✨</option>
-      </select><button onclick="nextQ(3)">Next 💕</button>
-    </div>
-    <div id=q3 class=hidden>
-      <h2>🍴 What food?</h2><select id=food>
-        <option>McDo 🍔</option>
-        <option>Jollibee 🍗</option>
-        <option>Burger King 🍔</option>
-        <option>Inasal 🍗</option>
-        <option>KKB 🍽️</option>
-        <option>Shabu Shabu 🍲</option>
-        <option>Street Food 🌭</option>
-      </select><button onclick="nextQ(4)">Next 💕</button>
-    </div>
-    <div id=q4 class=hidden>
-      <h2>🕒 What time?</h2><select id=time>
-        <option>12:00 NN - 3:00 PM</option>
-        <option>3:00 PM - 5:00 PM</option>
-        <option>5:00 PM - 7:00 PM</option>
-      </select><button onclick="showResult()">Create Invitation 💌</button>
-    </div>
-    <div id=result class="hidden result">
-      <h2>💗 You're Invited 💗</h2>
-      <p id=message></p>
-      <div class=choice><button id=yesBtn onclick="yesAnswer()">Yes 💗</button><button id=noBtn>No 😭</button></div>
-      <p id=yesMsg></p>
-    </div>
-  </div>
-  <script>
-    function nextQ(n) { for (let i = 1; i <= 4; i++)document.getElementById("q" + i).classList.add("hidden"); document.getElementById("q" + n).classList.remove("hidden") }
-    function showResult() {
-      for (let i = 1; i <= 4; i++)document.getElementById("q" + i).classList.add("hidden");
-      result.classList.remove("hidden");
-      message.innerHTML = `I would love to spend a special day with you 💕<br><br>📍 <b>${place.value}</b><br>🎮 <b>${fun.value}</b><br>🍴 <b>${food.value}</b><br>🕒 <b>${time.value}</b><br><br>So, miss pwede mo ba akong samahan? I would really appreciate it! 🌸`;
-    }
-    function yesAnswer() { yesMsg.innerHTML = "🥹💗 YAY!! Thank you for saying YES! I can't wait to spend this day with you. 🌸"; }
-    const no = document.getElementById("noBtn");
-    document.addEventListener("mousemove", e => {
-      const r = no.getBoundingClientRect();
-      const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2);
-      if (Math.hypot(dx, dy) < 120) {
-        no.style.transform = `translate(${(Math.random() * 220 - 110)}px,${(Math.random() * 160 - 80)}px)`;
-      }
-    });
-    for (let i = 0; i < 25; i++) { let h = document.createElement("div"); h.className = "heart"; h.textContent = "💗"; h.style.left = Math.random() * 100 + "vw"; h.style.animationDuration = 5 + Math.random() * 6 + "s"; h.style.fontSize = 10 + Math.random() * 24 + "px"; document.body.appendChild(h); }
-  </script>
+    <script>
+        function show(id) { for (let i = 1; i <= 4; i++)q = document.getElementById("q" + i), q.classList.add("hidden"); let p = document.getElementById(id); p.classList.remove("hidden"); p.classList.add("fadeIn"); setTimeout(() => p.classList.remove("fadeIn"), 600); }
+        function nextQ(n) { show("q" + n); }
+        function showResult() { show("result"); message.innerHTML = `I would love to spend a special day with you 💕<br><br>📍 <b>${place.value}</b><br>🎮 <b>${fun.value}</b><br>🍴 <b>${food.value}</b><br>🕒 <b>${time.value}</b><br><br>So, miss pwede mo ba akong samahan? I would really appreciate it! 🌸`; }
+        function createHearts() { for (let i = 0; i < 40; i++) { let h = document.createElement("div"); h.innerHTML = "💖"; h.style.position = "fixed"; h.style.left = Math.random() * 100 + "vw"; h.style.top = "100vh"; h.style.fontSize = (20 + Math.random() * 20) + "px"; h.style.transition = "all 4s linear"; document.body.appendChild(h); setTimeout(() => { h.style.top = "-100px"; h.style.transform = `translateX(${Math.random() * 300 - 150}px) rotate(720deg)`; h.style.opacity = 0; }, 50); setTimeout(() => h.remove(), 4000); } }
+        function yesAnswer() { yesBtn.classList.add("pop"); createHearts(); setTimeout(() => { result.classList.add("fadeOut"); setTimeout(() => { result.style.display = "none"; thankYou.style.display = "block"; thankYou.classList.add("fadeIn"); }, 500); }, 800); }
+        const no = document.getElementById("noBtn");
+        document.addEventListener("mousemove", e => { const r = no.getBoundingClientRect(); const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2); if (Math.hypot(dx, dy) < 120) { no.style.transform = `translate(${Math.random() * 220 - 110}px,${Math.random() * 160 - 80}px)`; } });
+        for (let i = 0; i < 25; i++) { let h = document.createElement("div"); h.className = "heart"; h.textContent = "💗"; h.style.left = Math.random() * 100 + "vw"; h.style.animationDuration = 5 + Math.random() * 6 + "s"; h.style.fontSize = 10 + Math.random() * 24 + "px"; document.body.appendChild(h); }
+    </script>
 </body>
 
 </html>
