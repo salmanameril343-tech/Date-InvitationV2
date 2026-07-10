@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Our Date Invitation 💗</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+
+body{
+
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e8,#fff5f8);
+
+}
+
+
+.container{
+
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(255,80,130,0.3);
+
+}
+
+
+h1{
+
+    color:#ff4f87;
+    font-size:32px;
+
+}
+
+
+h2{
+
+    color:#ff6b9a;
+
+}
+
+
+select, button{
+
+    width:90%;
+    padding:13px;
+    margin:15px;
+    border-radius:25px;
+    font-size:16px;
+
+}
+
+
+select{
+
+    border:2px solid #ffc1d6;
+
+}
+
+
+button{
+
+    background:#ff4f87;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    background:#ff2f70;
+    transform:scale(1.05);
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+.animate{
+
+    animation:slide .6s ease;
+
+}
+
+
+
+@keyframes slide{
+
+from{
+
+    opacity:0;
+    transform:translateX(100px);
+
+}
+
+to{
+
+    opacity:1;
+    transform:translateX(0);
+
+}
+
+}
+
+
+
+.result{
+
+    background:#fff0f5;
+    padding:20px;
+    border-radius:25px;
+    animation:pop .7s ease;
+
+}
+
+
+
+@keyframes pop{
+
+from{
+
+transform:scale(.5);
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+opacity:1;
+
+}
+
+}
+
+
+
+.heart{
+
+    font-size:55px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="heart">
+💗
+</div>
+
+
+<h1>Date Invitation</h1>
+
+
+
+<!-- QUESTION 1 -->
+
+<div id="question1" class="animate">
+
+
+<h2>📍 Where should we go?</h2>
+
+
+<select id="place">
+
+<option>Lakeshore</option>
+<option>SM Bicutan</option>
+<option>SM Aura</option>
+<option>Market Market</option>
+<option>Optional</option>
+
+</select>
+
+
+<button onclick="nextQuestion(2)">
+Next 💕
+</button>
+
+
+</div>
+
+
+
+
+
+<!-- QUESTION 2 -->
+
+<div id="question2" class="hidden">
+
+
+<h2>🎮 What fun place?</h2>
+
+
+<select id="funplace">
+
+<option>Arcade 🎮</option>
+<option>Park 🌳</option>
+<option>Amusement Park 🎡</option>
+<option>Cinema 🎬</option>
+<option>Mall Adventure 🛍️</option>
+<option>Others ✨</option>
+
+
+</select>
+
+
+<button onclick="nextQuestion(3)">
+Next 💕
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- QUESTION 3 -->
+
+<div id="question3" class="hidden">
+
+
+<h2>🍴 What food?</h2>
+
+
+<select id="food">
+
+<option>McDo 🍔</option>
+<option>Jollibee 🍗</option>
+<option>Burger King 🍔</option>
+<option>Inasal 🍗</option>
+<option>KKB 🍽️</option>
+<option>Shabu Shabu 🍲</option>
+<option>Street Food 🌭</option>
+
+
+</select>
+
+
+<button onclick="nextQuestion(4)">
+Next 💕
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- QUESTION 4 -->
+
+<div id="question4" class="hidden">
+
+
+<h2>🕒 What time?</h2>
+
+
+<select id="time">
+
+<option>12:00 NN - 3:00 PM</option>
+<option>3:00 PM - 5:00 PM</option>
+<option>5:00 PM - 7:00 PM</option>
+
+
+</select>
+
+
+<button onclick="showResult()">
+Create Invitation 💌
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- RESULT -->
+
+<div id="result" class="hidden result">
+
+
+<h2>💗 You're Invited 💗</h2>
+
+
+<p id="message"></p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+function nextQuestion(number){
+
+
+let current=document.querySelectorAll(".container > div");
+
+
+current.forEach(item=>{
+
+if(item.id.includes("question")){
+
+item.classList.add("hidden");
+
+}
+
+});
+
+
+
+let next=document.getElementById("question"+number);
+
+
+next.classList.remove("hidden");
+
+next.classList.add("animate");
+
+
+}
+
+
+
+
+function showResult(){
+
+
+let place=document.getElementById("place").value;
+
+let funplace=document.getElementById("funplace").value;
+
+let food=document.getElementById("food").value;
+
+let time=document.getElementById("time").value;
+
+
+
+
+document.querySelectorAll(".container > div").forEach(item=>{
+
+item.classList.add("hidden");
+
+});
+
+
+
+document.getElementById("result").classList.remove("hidden");
+
+
+
+document.getElementById("message").innerHTML=
+
+`
+
+I would love to spend a special day with you 💕
+
+<br><br>
+
+📍 Place:
+<b>${place}</b>
+
+<br>
+
+🎮 Activity:
+<b>${funplace}</b>
+
+<br>
+
+🍴 Food:
+<b>${food}</b>
+
+<br>
+
+🕒 Time:
+<b>${time}</b>
+
+
+<br><br>
+
+
+Let's create beautiful memories together 🌸
+
+<br>
+
+See you there 💗
+
+`;
+
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
