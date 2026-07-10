@@ -1,809 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Date Invitation 💗</title>
-
-<style>
-
-*{
-box-sizing:border-box;
-font-family:Poppins,Arial,sans-serif;
-}
-
-body{
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-overflow:hidden;
-background:
-linear-gradient(135deg,#ffd6e8,#fff5f8);
-}
-
-
-.container{
-
-width:430px;
-max-width:95%;
-background:white;
-padding:30px;
-border-radius:35px;
-text-align:center;
-
-box-shadow:
-0 20px 50px rgba(255,80,130,.35);
-
-position:relative;
-z-index:2;
-
-}
-
-
-h1{
-color:#ff4f87;
-}
-
-
-h2{
-color:#ff6b9a;
-}
-
-
-
-button{
-
-width:90%;
-padding:14px;
-
-border:none;
-border-radius:30px;
-
-background:#ff4f87;
-color:white;
-
-font-size:16px;
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-
-button:hover{
-
-transform:scale(1.05);
-
-}
-
-
-
-.hidden{
-display:none;
-}
-
-
-
-.options{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-
-margin:20px 0;
-
-}
-
-
-
-.option{
-
-background:
-linear-gradient(135deg,#fff0f5,#ffd6e8);
-
-border:2px solid #ffc1d6;
-
-padding:18px;
-
-border-radius:25px;
-
-cursor:pointer;
-
-color:#ff4f87;
-
-font-weight:bold;
-
-transition:.3s;
-
-box-shadow:
-0 5px 15px rgba(255,100,150,.15);
-
-}
-
-
-
-.option:hover{
-
-transform:
-translateY(-7px)
-scale(1.03);
-
-}
-
-
-
-.option.selected{
-
-background:#ff4f87;
-
-color:white;
-
-transform:scale(1.05);
-
-box-shadow:
-0 10px 25px rgba(255,80,130,.5);
-
-}
-
-
-
-.emoji{
-
-display:block;
-
-font-size:35px;
-
-margin-bottom:5px;
-
-}
-
-
-
-.result{
-
-background:#fff0f5;
-
-padding:20px;
-
-border-radius:25px;
-
-}
-
-
-
-.choice{
-
-display:flex;
-gap:10px;
-
-}
-
-
-
-.choice button{
-
-width:120px;
-
-}
-
-
-
-#noBtn{
-
-background:#999;
-
-position:relative;
-
-}
-
-
-
-.heart{
-
-position:absolute;
-
-font-size:25px;
-
-opacity:.5;
-
-animation:
-float 8s linear infinite;
-
-}
-
-
-
-@keyframes float{
-
-from{
-
-transform:
-translateY(100vh);
-
-}
-
-to{
-
-transform:
-translateY(-120vh);
-
-}
-
-}
-
-
-
-.fade{
-
-animation:
-fade .5s;
-
-}
-
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-transform:scale(.8);
-
-}
-
-to{
-
-opacity:1;
-
-}
-
-}
-
-
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Our Date Invitation 💗</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Poppins, Arial, sans-serif
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd6e8, #fff5f8);
+            overflow: hidden
+        }
+
+        .container {
+            width: 430px;
+            max-width: 95%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(255, 80, 130, .3);
+            position: relative;
+            z-index: 2
+        }
+
+        h1 {
+            color: #ff4f87
+        }
+
+        h2 {
+            color: #ff6b9a
+        }
+
+        select,
+        button {
+            width: 90%;
+            padding: 13px;
+            margin: 15px;
+            border-radius: 25px;
+            font-size: 16px
+        }
+
+        select {
+            border: 2px solid #ffc1d6
+        }
+
+        button {
+            background: #ff4f87;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: .3s
+        }
+
+        button:hover {
+            transform: scale(1.05)
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .fadeIn {
+            animation: fadeIn .6s
+        }
+
+        .fadeOut {
+            animation: fadeOut .5s forwards
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(.9)
+            }
+        }
+
+        .pop {
+            animation: pop .4s
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(.7)
+            }
+
+            70% {
+                transform: scale(1.15)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        .result {
+            background: #fff0f5;
+            padding: 20px;
+            border-radius: 25px
+        }
+
+        .choice {
+            display: flex;
+            justify-content: center;
+            gap: 20px
+        }
+
+        .choice button {
+            width: 120px
+        }
+
+        #noBtn {
+            background: #999;
+            position: relative
+        }
+
+        #thankYou {
+            display: none
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff7aa8;
+            animation: float 8s linear infinite;
+            opacity: .5
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh)
+            }
+
+            to {
+                transform: translateY(-120vh)
+            }
+        }
+    </style>
 </head>
 
-
-
 <body>
-
-
-
-<div class="container">
-
-
-
-<div style="font-size:60px">
-💗
-</div>
-
-
-<h1>
-Date Invitation
-</h1>
-
-
-
-<div id="q1">
-
-
-<h2>
-📍 Where should we go?
-</h2>
-
-
-<div class="options" id="place">
-
-
-<div class="option" onclick="choose(this,'Lakeshore')">
-
-<span class="emoji">🌅</span>
-Lakeshore
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'SM Bicutan')">
-
-<span class="emoji">🛍️</span>
-SM Bicutan
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'SM Aura')">
-
-<span class="emoji">✨</span>
-SM Aura
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'Market Market')">
-
-<span class="emoji">🏬</span>
-Market Market
-
-</div>
-
-
-</div>
-
-
-<button onclick="next(2)">
-Next 💕
-</button>
-
-
-</div>
-
-
-
-
-
-<div id="q2" class="hidden">
-
-
-<h2>
-🎮 Fun Place?
-</h2>
-
-
-<div class="options" id="fun">
-
-
-<div class="option" onclick="choose(this,'Arcade')">
-
-<span class="emoji">🎮</span>
-Arcade
-
-</div>
-
-
-<div class="option" onclick="choose(this,'Park')">
-
-<span class="emoji">🌳</span>
-Park
-
-</div>
-
-
-<div class="option" onclick="choose(this,'Cinema')">
-
-<span class="emoji">🎬</span>
-Cinema
-
-</div>
-
-
-<div class="option" onclick="choose(this,'Mall Adventure')">
-
-<span class="emoji">🛍️</span>
-Mall
-
-</div>
-
-
-</div>
-
-
-
-<button onclick="next(3)">
-Next 💕
-</button>
-
-
-
-</div>
-
-
-
-
-
-<div id="q3" class="hidden">
-
-
-<h2>
-🍴 Food?
-</h2>
-
-
-<div class="options" id="food">
-
-
-<div class="option" onclick="choose(this,'McDo')">
-
-<span class="emoji">🍔</span>
-McDo
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'Jollibee')">
-
-<span class="emoji">🍗</span>
-Jollibee
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'Inasal')">
-
-<span class="emoji">🔥</span>
-Inasal
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'Street Food')">
-
-<span class="emoji">🌭</span>
-Street Food
-
-</div>
-
-
-</div>
-
-
-
-<button onclick="next(4)">
-Next 💕
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-<div id="q4" class="hidden">
-
-
-<h2>
-🕒 Time?
-</h2>
-
-
-
-<div class="options" id="time">
-
-
-<div class="option" onclick="choose(this,'12PM - 3PM')">
-
-<span class="emoji">☀️</span>
-12-3 PM
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'3PM - 5PM')">
-
-<span class="emoji">🌤️</span>
-3-5 PM
-
-</div>
-
-
-
-<div class="option" onclick="choose(this,'5PM - 7PM')">
-
-<span class="emoji">🌙</span>
-5-7 PM
-
-</div>
-
-
-
-</div>
-
-
-
-<button onclick="result()">
-Create Invitation 💌
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div id="final" class="hidden result">
-
-
-<h2>
-💗 You're Invited 💗
-</h2>
-
-
-<p id="text"></p>
-
-
-<div class="choice">
-
-
-<button onclick="yes()">
-YES 💗
-</button>
-
-
-<button id="noBtn">
-NO 😭
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div id="thanks" class="hidden">
-
-
-<div style="font-size:80px">
-👩‍❤️‍👨
-</div>
-
-
-<h1>
-Thank You!
-</h1>
-
-
-<p>
-Thank you for saying YES 💕
-<br><br>
-
-I hope we create beautiful memories together.
-🌸✨
-
-</p>
-
-
-<button onclick="location.reload()">
-Restart 💗
-</button>
-
-
-
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-<script>
-
-
-let data={
-
-place:"",
-fun:"",
-food:"",
-time:""
-
-};
-
-
-
-function choose(el,value){
-
-
-let parent=el.parentElement;
-
-
-parent.querySelectorAll(".option")
-.forEach(x=>x.classList.remove("selected"));
-
-
-el.classList.add("selected");
-
-
-data[parent.id]=value;
-
-
-}
-
-
-
-
-function next(num){
-
-
-for(let i=1;i<=4;i++){
-
-document
-.getElementById("q"+i)
-.classList.add("hidden");
-
-}
-
-
-document
-.getElementById("q"+num)
-.classList.remove("hidden");
-
-
-}
-
-
-
-
-
-function result(){
-
-
-q1.classList.add("hidden");
-q2.classList.add("hidden");
-q3.classList.add("hidden");
-q4.classList.add("hidden");
-
-
-final.classList.remove("hidden");
-
-
-text.innerHTML=
-
-`
-I would love to spend a special day with you 💕
-<br><br>
-
-📍 ${data.place}
-<br>
-🎮 ${data.fun}
-<br>
-🍴 ${data.food}
-<br>
-🕒 ${data.time}
-
-<br><br>
-
-Will you join me? 🌸
-
-`;
-
-}
-
-
-
-
-
-function yes(){
-
-
-final.classList.add("hidden");
-
-thanks.classList.remove("hidden");
-
-
-for(let i=0;i<40;i++){
-
-let h=document.createElement("div");
-
-h.innerHTML="💖";
-
-h.style.position="fixed";
-h.style.left=Math.random()*100+"vw";
-h.style.top="100vh";
-h.style.fontSize="30px";
-
-document.body.appendChild(h);
-
-
-setTimeout(()=>{
-
-h.style.transition="4s";
-h.style.top="-100px";
-h.style.opacity=0;
-
-},100);
-
-
-}
-
-
-}
-
-
-
-
-
-
-document.addEventListener("mousemove",e=>{
-
-
-let no=document.getElementById("noBtn");
-
-
-let r=no.getBoundingClientRect();
-
-
-let x=e.clientX-r.left;
-let y=e.clientY-r.top;
-
-
-
-if(Math.abs(x)<100 && Math.abs(y)<80){
-
-
-no.style.transform=
-`
-translate(
-${Math.random()*200-100}px,
-${Math.random()*100-50}px
-)
-
-`;
-
-
-}
-
-
-});
-
-
-
-
-
-
-for(let i=0;i<20;i++){
-
-
-let h=document.createElement("div");
-
-
-h.className="heart";
-
-h.innerHTML="💗";
-
-
-h.style.left=Math.random()*100+"vw";
-
-h.style.animationDuration=
-(5+Math.random()*5)+"s";
-
-
-document.body.appendChild(h);
-
-
-}
-
-
-</script>
-
-
+    <div class="container" id="card">
+        <div style="font-size:55px">💗</div>
+        <h1>Date Invitation</h1>
+        <div id=q1>
+            <h2>📍 Where should we go?</h2><select id=place>
+                <option>Lakeshore</option>
+                <option>SM Bicutan</option>
+                <option>SM Aura</option>
+                <option>Market Market</option>
+                <option>Optional</option>
+            </select><button onclick="nextQ(2)">Next 💕</button>
+        </div>
+        <div id=q2 class=hidden>
+            <h2>🎮 What fun place?</h2><select id=fun>
+                <option>Arcade 🎮</option>
+                <option>Park 🌳</option>
+                <option>Amusement Park 🎡</option>
+                <option>Cinema 🎬</option>
+                <option>Mall Adventure 🛍️</option>
+                <option>Others ✨</option>
+            </select><button onclick="nextQ(3)">Next 💕</button>
+        </div>
+        <div id=q3 class=hidden>
+            <h2>🍴 What food?</h2><select id=food>
+                <option>McDo 🍔</option>
+                <option>Jollibee 🍗</option>
+                <option>Burger King 🍔</option>
+                <option>Inasal 🍗</option>
+                <option>KKB 🍽️</option>
+                <option>Shabu Shabu 🍲</option>
+                <option>Street Food 🌭</option>
+            </select><button onclick="nextQ(4)">Next 💕</button>
+        </div>
+        <div id=q4 class=hidden>
+            <h2>🕒 What time?</h2><select id=time>
+                <option>12:00 NN - 3:00 PM</option>
+                <option>3:00 PM - 5:00 PM</option>
+                <option>5:00 PM - 7:00 PM</option>
+            </select><button onclick="showResult()">Create Invitation 💌</button>
+        </div>
+        <div id=result class="hidden result">
+            <h2>💗 You're Invited 💗</h2>
+            <p id=message></p>
+            <div class=choice><button id=yesBtn onclick="yesAnswer()">Yes 💗</button><button id=noBtn>No 😭</button>
+            </div>
+            <p id=yesMsg></p>
+        </div>
+        <div id=thankYou>
+            <div style="font-size:75px">👩‍❤️‍👨</div>
+            <h1>Thank You!</h1>
+            <p>Thank you for saying <b>YES</b>. 💕<br><br>I really appreciate you giving me your time. This simple
+                invitation means so much to me, and I'm excited to spend the day with you. I hope we create beautiful
+                memories, laugh a lot, and enjoy every moment together.<br><br>See you soon! 🌸✨</p><button
+                onclick="location.reload()">Start Again 💗</button>
+        </div>
+    </div>
+    <script>
+        function show(id) { for (let i = 1; i <= 4; i++)q = document.getElementById("q" + i), q.classList.add("hidden"); let p = document.getElementById(id); p.classList.remove("hidden"); p.classList.add("fadeIn"); setTimeout(() => p.classList.remove("fadeIn"), 600); }
+        function nextQ(n) { show("q" + n); }
+        function showResult() { show("result"); message.innerHTML = `I would love to spend a special day with you 💕<br><br>📍 <b>${place.value}</b><br>🎮 <b>${fun.value}</b><br>🍴 <b>${food.value}</b><br>🕒 <b>${time.value}</b><br><br>So, miss pwede mo ba akong samahan? I would really appreciate it! 🌸`; }
+        function createHearts() { for (let i = 0; i < 40; i++) { let h = document.createElement("div"); h.innerHTML = "💖"; h.style.position = "fixed"; h.style.left = Math.random() * 100 + "vw"; h.style.top = "100vh"; h.style.fontSize = (20 + Math.random() * 20) + "px"; h.style.transition = "all 4s linear"; document.body.appendChild(h); setTimeout(() => { h.style.top = "-100px"; h.style.transform = `translateX(${Math.random() * 300 - 150}px) rotate(720deg)`; h.style.opacity = 0; }, 50); setTimeout(() => h.remove(), 4000); } }
+        function yesAnswer() { yesBtn.classList.add("pop"); createHearts(); setTimeout(() => { result.classList.add("fadeOut"); setTimeout(() => { result.style.display = "none"; thankYou.style.display = "block"; thankYou.classList.add("fadeIn"); }, 500); }, 800); }
+        const no = document.getElementById("noBtn");
+        document.addEventListener("mousemove", e => { const r = no.getBoundingClientRect(); const dx = e.clientX - (r.left + r.width / 2), dy = e.clientY - (r.top + r.height / 2); if (Math.hypot(dx, dy) < 120) { no.style.transform = `translate(${Math.random() * 220 - 110}px,${Math.random() * 160 - 80}px)`; } });
+        for (let i = 0; i < 25; i++) { let h = document.createElement("div"); h.className = "heart"; h.textContent = "💗"; h.style.left = Math.random() * 100 + "vw"; h.style.animationDuration = 5 + Math.random() * 6 + "s"; h.style.fontSize = 10 + Math.random() * 24 + "px"; document.body.appendChild(h); }
+    </script>
 </body>
+
 </html>
